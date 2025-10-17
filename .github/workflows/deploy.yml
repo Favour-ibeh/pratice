@@ -25,9 +25,9 @@ jobs:
 
     - name: Build and Push Docker Image to ECR
       run: |
-        docker build -t favour .
-        docker tag favour:latest 938882467274.dkr.ecr.us-east-1.amazonaws.com/favour:latest
-        docker push 938882467274.dkr.ecr.us-east-1.amazonaws.com/favour:latest
+        docker build -t favour${{ github.run_number }} .
+        docker tag favour:${{ github.run_number }} 938882467274.dkr.ecr.us-east-1.amazonaws.com/favour:${{ github.run_number }}
+        docker push 938882467274.dkr.ecr.us-east-1.amazonaws.com/favour:${{ github.run_number }}
 
 
   
